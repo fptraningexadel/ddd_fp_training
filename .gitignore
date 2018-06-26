@@ -1,0 +1,5 @@
+/.idea
+/target/classes/com/amarkhel/day2/*.class
+/target/classes/com/amarkhel/day2/answers
+/target/classes/com/amarkhel/day2/list
+/target/classes/com/amarkhel/day2/model
