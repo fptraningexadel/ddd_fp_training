@@ -18,7 +18,7 @@ object HelloScala extends App {
   case class Employee(name:String, dep:Option[Department])
   def getEmployee(id:Int) = Some(Employee("Andrey", None))
 
-  val a = for {
+  val a1 = for {
     emp <-getEmployee(1)
     department <- emp.dep
     name = department.name

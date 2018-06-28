@@ -1,6 +1,7 @@
 package com.amarkhel.day3;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ChatBotJava {
@@ -9,8 +10,10 @@ public class ChatBotJava {
         stopWords.add("Damn");
     }
     public static void main(String[] args){
-        User user = new User("user", 18, new Address("Minsk", "Street", 18));
-        User admin = new User("admin", 25, new Address("Vilnius", "Street", 18));
+        Date now = new Date();
+        User user = new User("user",18, now, new Address("Minsk", "Street", 18));
+        User admin = new User("admin", 25, now, new Address("Vilnius", "Street", 18));
+
         List<Message> messages = new ArrayList<>();
         messages.add(new ChatMessage("Damn, I tired...", LocalDateTime.now(), user));
         messages.add(new ChatMessage("Hello all!", LocalDateTime.now(), admin));
@@ -51,10 +54,12 @@ class User {
     private String name;
     private int age;
     private Address address;
-   public User(String name, int age, Address address) {
+    private Date openedDate;
+   public User(String name, int age, Date date, Address address) {
        this.name = name;
        this.age = age;
        this.address = address;
+       this.openedDate = date;
    }
    public String getName() {
        return name;
