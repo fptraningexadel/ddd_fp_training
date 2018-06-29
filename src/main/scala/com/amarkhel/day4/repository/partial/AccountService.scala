@@ -49,7 +49,7 @@ object AccountService extends AccountService[Account, Amount, Balance] {
 
   def credit(no: String, amount: Amount) = (repo: AccountRepository) =>
     repo.query(no) match {
-      case Success(Some(a)) => repo.store(a.copy(balance = Balance(a.balance.amount + amount)))
+      case Success(Some(a)) => repo.store(a.(balance = Balance(a.balance.amount + amount)))
       case Success(None) => Failure(new Exception(s"Account not found with $no"))
       case Failure(ex) => Failure(new Exception(s"Fail in credit to $no amount $amount", ex))
     }

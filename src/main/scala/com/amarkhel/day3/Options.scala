@@ -17,9 +17,9 @@ object MyOption{
   val e:String = d.getOrElse("Not Exist")
   println(d)
 
-  val name = getEmployee(2).flatMap(e => e.manager.flatMap(m => m.department.flatMap( d => d.name) ))
+  val name = getEmployee(2).flatMap(e => e.manager).flatMap(m => m.department).map( d => d.name)
 
-  val name = (for {
+  val name1 = (for {
     a <- getEmployee(2)
     b <- a.manager
     c <- b.department
